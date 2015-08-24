@@ -29,7 +29,7 @@ public class CategoryRepositoryTest {
 	@Test
 	public void shouldGetTheListOfCategory(){
 		List<Category> category = repository.Read();
-		Assert.assertEquals(category.size(), 1);
+		Assert.assertEquals(category.size(), 2);
 	}
 	@Test(expected=IllegalArgumentException.class)
 	public void shouldGetIllegalArgumentExceptionIfTheObjectToCreateIsNull(){
