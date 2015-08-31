@@ -20,9 +20,7 @@ public abstract class Repository <T extends Entity> implements IRepository<T> {
 	@SuppressWarnings("unchecked")
 	@Override
 	public T Create(T toCreate) {
-		//_unitOfWork.beginTransaction();
 		T created = (T)this._unitOfWork.getSession().merge(toCreate);
-		//_unitOfWork.commit();
 		return created;
 	}
 

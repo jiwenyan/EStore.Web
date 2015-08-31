@@ -29,7 +29,7 @@ public class CategoryRepositoryTest {
 	@Test
 	public void shouldGetTheListOfCategory(){
 		List<Category> category = repository.Read();
-		Assert.assertEquals(category.size(), 2);
+		Assert.assertTrue(category.size()>0);
 	}
 	@Test(expected=IllegalArgumentException.class)
 	public void shouldGetIllegalArgumentExceptionIfTheObjectToCreateIsNull(){
@@ -68,7 +68,7 @@ public class CategoryRepositoryTest {
 	
 	@Test
 	public void shoudlSuccessToDelete() throws NotFoundException{
-		/*Category toCreate = createCategory();
+		Category toCreate = createCategory();
 		uow.beginTransaction();
 		Category created = repository.Create(toCreate);
 		uow.commit();
@@ -78,8 +78,8 @@ public class CategoryRepositoryTest {
 		Assert.assertNotNull(toDelete);
 		uow.beginTransaction();
 		repository.Delete(idToDelete);
-		uow.commit();*/
-		int idToDelete = 19;
+		uow.commit();
+		//int idToDelete = 19;
 		List<Category> categories = repository.Read();
 		List<Category> found = ListUtils.filterByPredicate(categories,new Delegator<Comparator,Boolean>(Comparator.class,"EqualsToId")
 																			.BuildProxy(new Comparator())
