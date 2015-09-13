@@ -8,5 +8,11 @@
 	<bean class="EStore.Web.DAL.Impl.CategoryRepository" >
 		<constructor-arg name="unitOfWork" ref="unitOfWork"></constructor-arg>
 	</bean>
-
+	
+	<bean class="EStore.Web.Model.Category"></bean>
+	<bean class="EStore.Web.Model.Mark"></bean>
+	<bean class="EStore.Web.Model.Product"></bean>
+	<bean class="EStore.Web.Model.ProductDetail"></bean>
+	<bean class="EStore.Web.Model.ShoppingCard"></bean>
+	<bean class="EStore.Web.Model.ShoppingCardProductSelection"></bean>
 </beans>

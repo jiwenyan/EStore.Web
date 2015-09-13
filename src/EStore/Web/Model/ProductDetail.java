@@ -1,16 +1,22 @@
 package EStore.Web.Model;
 
+import javax.persistence.Column;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
 import DAL.Framework.Entity;
 
+@javax.persistence.Entity
+@Table(name = "productDetails")
 public class ProductDetail extends Entity {
+	@Column(columnDefinition="varchar(15)")
 	private String color;
-	private int size;
+	@Column(columnDefinition="varchar(15)")
+	private String size;
 	private int stock;
 	@ManyToOne
 	@Cascade(value=CascadeType.SAVE_UPDATE)
@@ -23,10 +29,10 @@ public class ProductDetail extends Entity {
 	public void setColor(String color) {
 		this.color = color;
 	}
-	public int getSize() {
+	public String getSize() {
 		return size;
 	}
-	public void setSize(int size) {
+	public void setSize(String size) {
 		this.size = size;
 	}
 	public int getStock() {

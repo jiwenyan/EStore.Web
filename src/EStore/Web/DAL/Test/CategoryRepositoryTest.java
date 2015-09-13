@@ -7,6 +7,11 @@ import javassist.NotFoundException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import DAL.Framework.UnitOfWork;
 import EStore.Web.DAL.ICategoryRepository;
@@ -16,14 +21,20 @@ import EStore.Web.Utils.Comparator;
 import EStore.Web.Utils.Delegator;
 import EStore.Web.Utils.ListUtils;
 
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration(locations="/Resources/Beans.xml")
 public class CategoryRepositoryTest {
 	private ICategoryRepository repository;
 	private UnitOfWork uow;
+	
+	//@Autowired
+	//private ApplicationContext appContext;
 	
 	@Before
 	public void init(){
 		uow = new UnitOfWork();
 		repository = new CategoryRepository(uow);
+		//repository = (ICategoryRepository)appContext.getBean("categoryRepository");
 	}
 	
 	@Test

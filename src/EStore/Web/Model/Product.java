@@ -4,19 +4,25 @@ import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
 import DAL.Framework.Entity;
 
+@javax.persistence.Entity
+@Table(name="product")
 public class Product extends Entity{
+	@Column(columnDefinition="varchar(1024)")
 	private String name;
 	private BigDecimal price;
+	@Column(columnDefinition="text")
 	private String description;
 	@ManyToOne
 	@Cascade(value=CascadeType.SAVE_UPDATE)

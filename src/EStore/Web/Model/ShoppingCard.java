@@ -6,12 +6,15 @@ import java.util.Set;
 
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
 import DAL.Framework.Entity;
 
+@javax.persistence.Entity
+@Table(name="shoppingCard")
 public class ShoppingCard extends Entity {
 	private Timestamp createdAt;
 	private String createdBy;

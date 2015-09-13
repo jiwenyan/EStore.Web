@@ -10,4 +10,8 @@ public class CategoryRepository extends Repository<Category> implements ICategor
 	public CategoryRepository(UnitOfWork unitOfWork) {
 		super(Category.class, unitOfWork);
 	}
+	
+	public CategoryRepository(){
+		super(Category.class, null);
+	}
 }

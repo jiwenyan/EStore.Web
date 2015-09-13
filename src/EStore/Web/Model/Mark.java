@@ -1,10 +1,18 @@
 package EStore.Web.Model;
 
+import javax.persistence.Column;
+import javax.persistence.Table;
+
 import DAL.Framework.Entity;
 
+@javax.persistence.Entity
+@Table(name="mark")
 public class Mark extends Entity {
+@Column(columnDefinition="char(255)")
 private String name;
+@Column(columnDefinition="char(50)")
 private String country;
+@Column(name="logo",columnDefinition="varchar(1024)")
 private String url;
 
 public String getName() {
