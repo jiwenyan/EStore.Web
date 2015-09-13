@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean class="DAL.Framework.UnitOfWork" name="unitOfWork"></bean>
+    
+	<bean class="EStore.Web.DAL.Impl.CategoryRepository" >
+		<constructor-arg name="unitOfWork" ref="unitOfWork"></constructor-arg>
+	</bean>
+
+</beans>

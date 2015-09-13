@@ -7,8 +7,8 @@ import EStore.Web.Model.ProductDetail;
 
 public class ProductDetailRepository extends Repository<ProductDetail> implements IProductDetailRepository{
 
-	public ProductDetailRepository(Class<ProductDetail> typeArgument,UnitOfWork unitOfWork) {
-		super(typeArgument, unitOfWork);
+	public ProductDetailRepository(UnitOfWork unitOfWork) {
+		super(ProductDetail.class, unitOfWork);
 	}
 
 }

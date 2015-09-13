@@ -7,8 +7,8 @@ import EStore.Web.Model.ShoppingCard;
 
 public class ShoppingCardRepository extends Repository<ShoppingCard> implements IShoppingCardRepository {
 
-	public ShoppingCardRepository(Class<ShoppingCard> typeArgument,UnitOfWork unitOfWork) {
-		super(typeArgument, unitOfWork);
+	public ShoppingCardRepository(UnitOfWork unitOfWork) {
+		super(ShoppingCard.class, unitOfWork);
 	}
 
 }

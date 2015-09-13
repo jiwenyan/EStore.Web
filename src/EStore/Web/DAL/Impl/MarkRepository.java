@@ -7,8 +7,8 @@ import EStore.Web.Model.Mark;
 
 public class MarkRepository extends Repository<Mark> implements IMarkRepository {
 
-	public MarkRepository(Class<Mark> typeArgument, UnitOfWork unitOfWork) {
-		super(typeArgument, unitOfWork);
+	public MarkRepository(UnitOfWork unitOfWork) {
+		super(Mark.class, unitOfWork);
 	}
 
 }

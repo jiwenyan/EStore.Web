@@ -7,8 +7,8 @@ import EStore.Web.Model.Product;
 
 public class ProductRepository extends Repository<Product> implements IProductRepository {
 
-	public ProductRepository(Class<Product> typeArgument, UnitOfWork unitOfWork) {
-		super(typeArgument, unitOfWork);
+	public ProductRepository(UnitOfWork unitOfWork) {
+		super(Product.class, unitOfWork);
 		// TODO Auto-generated constructor stub
 	}
 
