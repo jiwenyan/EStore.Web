@@ -11,6 +11,8 @@ public class HqlCommand extends Predicate{
 	private boolean isDelete;
 	private boolean isSelect;
 	
+	private static final String THIS_ALIAS="obj";
+	
 	private HqlCommand(boolean isDelete){
 		this.isDelete = isDelete;
 		this.isSelect = !isDelete;
@@ -20,7 +22,7 @@ public class HqlCommand extends Predicate{
 	
 	public HqlCommand(String entityName) {
 		super();
-		root = "from "+entityName+" as obj";
+		root = "from "+entityName+" as "+THIS_ALIAS;
 		joins = "";
 		footer="";
 		isSelect = true;
@@ -30,38 +32,62 @@ public class HqlCommand extends Predicate{
 	@SuppressWarnings("rawtypes")
 	public HqlCommand(Class entityType){
 		super();
-		root = " from "+getEntityName(entityType)+" as obj ";
+		root = " from "+getEntityName(entityType)+" as "+THIS_ALIAS;
 		joins = "";
 		footer="";
 		isSelect = true;
 		isDelete = false;
 	}
 	
-	public HqlCommand innerJoin(String toJoin){
-		joins += "inner join "+toJoin+"";
+	public HqlCommand innerJoin(String toJoin, String parentAliase){
+		if(parentAliase==null||parentAliase.isEmpty()){
+			parentAliase = THIS_ALIAS;
+		}
+		toJoin = parentAliase+"."+toJoin;
+		joins += "inner join "+toJoin+" ";
 		return this;
 	}
-	public HqlCommand innerJoinFetch(String toJoin){
+	public HqlCommand innerJoinFetch(String toJoin, String parentAliase){
+		if(parentAliase==null||parentAliase.isEmpty()){
+			parentAliase = THIS_ALIAS;
+		}
+		toJoin = parentAliase+"."+toJoin;
 		joins += "inner join fetch "+toJoin+" ";
 		return this;
 	}
 	
 	
-	public HqlCommand leftOuterJoin(String toJoin){
+	public HqlCommand leftOuterJoin(String toJoin, String parentAliase){
+		if(parentAliase==null||parentAliase.isEmpty()){
+			parentAliase = THIS_ALIAS;
+		}
+		toJoin = parentAliase+"."+toJoin;
 		joins+="left outer join "+toJoin+" ";
 		return this;
 	}
-	public HqlCommand leftOuterJoinFetch(String toJoin){
+	public HqlCommand leftOuterJoinFetch(String toJoin, String parentAliase){
+		if(parentAliase==null||parentAliase.isEmpty()){
+			parentAliase = THIS_ALIAS;
+		}
+		toJoin = parentAliase+"."+toJoin;
 		joins+="left outer join fetch "+toJoin+" ";
 		return this;
 	}
 	
 	
-	public HqlCommand rightOuterJoin(String toJoin){
+	public HqlCommand rightOuterJoin(String toJoin, String parentAliase){
+		if(parentAliase==null||parentAliase.isEmpty()){
+			parentAliase = THIS_ALIAS;
+		}
+		toJoin = parentAliase+"."+toJoin;
 		joins+="right outer join "+toJoin+" ";
 		return this;
 	}
-	public HqlCommand rightOuterJoinFetch(String toJoin){
+	public HqlCommand rightOuterJoinFetch(String toJoin, String parentAliase){
+		if(parentAliase==null||parentAliase.isEmpty()){
+			parentAliase = THIS_ALIAS;
+		}
+		toJoin = parentAliase+"."+toJoin;
 		joins+="right outer join fech "+toJoin+" ";
 		return this;
 	}

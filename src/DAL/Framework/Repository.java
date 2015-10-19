@@ -80,7 +80,7 @@ public abstract class Repository <T extends Entity> implements IRepository<T> {
 		return (Class<T>) ((ParameterizedType)this.getClass().getGenericSuperclass()).getActualTypeArguments()[0];
 	}
 	
-	private Query getQuery(HqlCommand command){
+	protected Query getQuery(HqlCommand command){
 		Query query = this._unitOfWork.getSession().createQuery(command.GetQueryString());
 		
 		for(PredicateParameter parameter : command.getParameters()){

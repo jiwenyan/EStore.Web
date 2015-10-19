@@ -45,10 +45,7 @@ public class ProductRepositoryTest {
 		repository = new ProductRepository(unitOfWork);
 		categoryRepository = new CategoryRepository(unitOfWork);
 	}
-	
-	
-	
-	
+		
 	@Test
 	public void readTest(){
 		//given
@@ -106,6 +103,27 @@ public class ProductRepositoryTest {
 		repository.Create(product);
 		unitOfWork.commit();
 		//then
+	}
+	
+	@Test
+	public void sholdGetProductByCategoryId(){
+		List<Product> products = repository.getProductListByCategoryId(1);
+		for(Product product : products){
+			System.out.println(product.getId()+";");
+			System.out.println(product.getName()+";");	
+			System.out.println(product.getPrice()+";");	
+		}
+		
+	}
+	
+	@Test
+	public void test(){
+		List<Product> products = repository.getProductListByMarkId(1);
+		for(Product product : products){
+			System.out.println(product.getId()+";");
+			System.out.println(product.getName()+";");	
+			System.out.println(product.getPrice()+";");	
+		}
 	}
 	
 	private Product createProduct(){

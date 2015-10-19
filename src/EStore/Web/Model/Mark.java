@@ -1,6 +1,10 @@
 package EStore.Web.Model;
 
+import java.util.Set;
+
 import javax.persistence.Column;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import DAL.Framework.Entity;
@@ -14,6 +18,8 @@ private String name;
 private String country;
 @Column(name="logo",columnDefinition="varchar(1024)")
 private String url;
+@OneToMany(targetEntity=Product.class,mappedBy="mark",fetch=FetchType.LAZY)
+private Set<Product> products;
 
 public String getName() {
 	return name;
