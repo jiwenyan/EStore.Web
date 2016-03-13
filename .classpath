@@ -15,5 +15,7 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Mockito"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Spring Library"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/WebService"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Gson"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
