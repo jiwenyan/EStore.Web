@@ -17,8 +17,8 @@ public class ProductSerializer  implements JsonSerializer<Product>{
 			JsonSerializationContext arg2) {
 		JsonObject obj = new JsonObject();
 	    obj.addProperty("id", arg0.getId());
-	    obj.addProperty("id", arg0.getDescription());
-	    obj.addProperty("id", arg0.getPrice());
+	    obj.addProperty("description", arg0.getDescription());
+	    obj.addProperty("price", arg0.getPrice());
 	    obj.addProperty("name", arg0.getName());
 	    return obj;
 	}

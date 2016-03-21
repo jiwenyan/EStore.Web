@@ -68,6 +68,7 @@ public final class SessionProvider {
 	private static void Configure(){
 		configuration = new Configuration();
 		configuration.configure();
+		_configured=true;
 	}
 	
 }

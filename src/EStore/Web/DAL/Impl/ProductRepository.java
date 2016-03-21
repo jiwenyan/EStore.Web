@@ -39,5 +39,4 @@ public class ProductRepository extends Repository<Product> implements IProductRe
 		Query query = this.getQuery(command);
 		return query.list();
 	}
-
 }
