@@ -5,7 +5,12 @@ import javax.servlet.http.HttpServlet;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Bootstrapper extends HttpServlet {
+	private static ClassPathXmlApplicationContext context;
 	public Bootstrapper(){
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Resouces.Spring/Beans.xml");	
+		Bootstrapper.context = new ClassPathXmlApplicationContext("Beans.xml");	
+	}
+	
+	public static Object getObject(String className) {
+		return context.getBean(className);
 	}
 }

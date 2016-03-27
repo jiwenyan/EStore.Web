@@ -15,15 +15,9 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
-import com.google.gson.reflect.TypeToken;
-
-import DAL.Framework.UnitOfWork;
 import EStore.Web.BusinessLayer.ICategoryService;
 import EStore.Web.BusinessLayer.IMarkService;
 import EStore.Web.BusinessLayer.IProductService;
-import EStore.Web.BusinessLayer.Impl.CategoryServiceImpl;
-import EStore.Web.BusinessLayer.Impl.MarkServiceImpl;
-import EStore.Web.BusinessLayer.Impl.ProductServiceImpl;
 import EStore.Web.Model.Category;
 import EStore.Web.Model.Mark;
 import EStore.Web.Model.Product;
@@ -33,10 +27,10 @@ import EStore.Web.Serializers.ProductSerializer;
 @Path(value="/homepageService")
 public class HomepageService {
 
-	//@Autowired
-	private ICategoryService categoryService=new CategoryServiceImpl(new UnitOfWork());
-	private IMarkService markService = new MarkServiceImpl(new UnitOfWork());
-	private IProductService productService = new ProductServiceImpl(new UnitOfWork());
+	@Autowired
+	private ICategoryService categoryService=(ICategoryService)Bootstrapper.getObject("categoryServiceImpl");
+	private IMarkService markService = (IMarkService)Bootstrapper.getObject("markServiceImpl");
+	private IProductService productService = (IProductService)Bootstrapper.getObject("productServiceImpl");
 	
 	@GET
 	@Path("getCategories")
