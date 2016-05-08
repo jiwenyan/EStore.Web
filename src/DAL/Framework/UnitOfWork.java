@@ -14,8 +14,8 @@ public class UnitOfWork {
 	private LinkedList<Transaction> transactionList;
 	
 	public UnitOfWork(){
-		_session = SessionProvider.getSession();
-		transactionList = new LinkedList<Transaction>();
+			_session = SessionProvider.getSession();
+			transactionList = new LinkedList<Transaction>();
 	}
 	
 	public void beginTransaction(){

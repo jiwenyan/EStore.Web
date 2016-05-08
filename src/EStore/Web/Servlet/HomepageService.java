@@ -122,5 +122,19 @@ public class HomepageService {
 		return gson.toJson(products);
 	}
 	
+	@GET
+	@Path("testMinus2")
+	@Produces("text/HTML")
+	public String test(){
+		
+		int i = 2;
+		System.out.println("i = "+i);
+		int ii = ~i;
+
+		System.out.println("~i = "+ii);
+		
+		return "~2 is "+ii;
+	}
+	
 	
 }

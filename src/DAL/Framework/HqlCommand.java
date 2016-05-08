@@ -127,10 +127,6 @@ public class HqlCommand extends Predicate{
 		return this;
 	}
 	public HqlCommand Distinct(String... toDistincts) throws Exception{
-		if(distinct!=null){
-			throw new Exception("Distinct can be used only once");
-		}
-		
 		
 		if(distinct!=null && 
 		   distinct.length()>0){
